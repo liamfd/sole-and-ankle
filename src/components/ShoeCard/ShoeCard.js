@@ -44,15 +44,19 @@ const ShoeCard = ({
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          <SalePrice>{formatPrice(salePrice)}</SalePrice>
         </Row>
+        <VariantFlag variant={variant}/>
       </Wrapper>
     </Link>
   );
 };
 
+
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
+  position: relative;
 
   // for grid
   // display: block;
@@ -92,6 +96,25 @@ const ColorInfo = styled.p`
 const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
+`;
+
+
+const VariantFlag = ({variant}) => {
+  if (variant === 'default') return null;
+
+  // these ternaries are bad
+  return <VariantFlagWrapper backgroundColor={variant === 'on-sale' ? COLORS.primary : COLORS.secondary}>{variant === 'on-sale' ? 'On Sale' : 'Just Released' }</VariantFlagWrapper>;
+}
+
+const VariantFlagWrapper = styled.p`
+  padding: 4px 8px;
+  background-color: ${p => p.backgroundColor};
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  right: -8px;
+  top: 16px;
+  border-radius: 2px;
 `;
 
 export default ShoeCard;
