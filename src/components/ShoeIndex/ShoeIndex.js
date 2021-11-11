@@ -25,8 +25,8 @@ const ShoeIndex = ({ sortId, setSortId }) => {
           </Select>
         </Header>
         <Spacer size={34} />
-        {/* <ShoeGrid /> */}
-        <FakeShoeGrid />
+        <ShoeGrid />
+        {/* <FakeShoeGrid /> */}
       </MainColumn>
       <LeftColumn>
         <Breadcrumbs>
