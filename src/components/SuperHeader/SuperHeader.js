@@ -9,6 +9,7 @@ import Icon from '../Icon';
 
 const SuperHeader = () => {
   return (
+    // <WrapperWrapper>
     <Wrapper>
       <MarketingMessage>
         Free shipping on domestic orders over $75!
@@ -19,17 +20,33 @@ const SuperHeader = () => {
         <Icon id="shopping-bag" strokeWidth={1} />
       </UnstyledButton>
     </Wrapper>
+    // </WrapperWrapper>
   );
 };
 
+// const WrapperWrapper = styled.div`
+//   display: flex;
+//   align-items: center;
+//   padding: 12px 32px;
+//   background-color: ${COLORS.gray[900]};
+
+// `
+
 const Wrapper = styled.div`
+  flex: 1;
   font-size: 0.875rem;
   color: ${COLORS.gray[300]};
+  display: flex;
+  gap: 32px;
+
+  align-items: center; // seems like we should try to use baseline
+  padding: 12px 32px;
   background-color: ${COLORS.gray[900]};
 `;
 
 const MarketingMessage = styled.span`
   color: ${COLORS.white};
+  margin-right: auto;
 `;
 
 const HelpLink = styled.a`
